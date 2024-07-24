@@ -2,12 +2,8 @@ body {
     font-family: "Times New Roman", sans-serif;
 }
 
-/* Light Theme */
-#LightHome {
-    background-color: white;
-    color: black;
-}
-#LightNewNote {
+/* Light theme */
+body.light-theme {
     background-color: white;
     color: black;
 }
@@ -21,11 +17,7 @@ a.light-theme {
 }
 
 /* Dark theme */
-#DarkHome {
-    background-color: black;
-    color: whitesmoke;
-}
-#DarkNewNote {
+body.dark-theme {
     background-color: black;
     color: whitesmoke;
 }
