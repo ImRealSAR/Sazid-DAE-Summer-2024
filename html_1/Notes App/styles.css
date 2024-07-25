@@ -1,4 +1,4 @@
-body {
+* {
     font-family: "Times New Roman", sans-serif;
 }
 
@@ -14,29 +14,4 @@ h1.light-theme {
 
 a.light-theme {
     color: blue;
-}
-
-/* Dark theme */
-body.dark-theme {
-    background-color: black;
-    color: whitesmoke;
-}
-
-h1.dark-theme {
-    color: whitesmoke;
-}
-
-a.dark-theme {
-    color: lightblue;
-}
-
-button {
-    margin: 20px;
-    padding: 10px 20px;
-    background-color: #007bff;
-    color: white;
-}
-
-button:hover {
-    background-color: #0056b3;
 }
