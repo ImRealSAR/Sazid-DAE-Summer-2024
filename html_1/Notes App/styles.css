@@ -15,3 +15,35 @@ h1.light-theme {
 a.light-theme {
     color: blue;
 }
+
+p {
+    font-size: 16px;
+    line-height: 1.5;
+    color: darkgray;
+}
+
+ul {
+    list-style-type: disc;
+    margin-left: 20px;
+}
+
+ol {
+    list-style-type: decimal;
+    margin-left: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    border: 1px solid black;
+    padding: 8px;
+    text-align: left;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}

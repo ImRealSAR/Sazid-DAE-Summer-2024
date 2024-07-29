@@ -16,6 +16,39 @@ a.dark-theme {
     color: lightblue;
 }
 
+p {
+    font-size: 16px;
+    line-height: 1.5;
+    color: lightgray;
+}
+
+ul {
+    list-style-type: disc;
+    margin-left: 20px;
+}
+
+ol {
+    list-style-type: decimal;
+    margin-left: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    border: 1px solid white;
+    padding: 8px;
+    text-align: left;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Button styles */
 button {
     margin: 20px;
     padding: 10px 20px;

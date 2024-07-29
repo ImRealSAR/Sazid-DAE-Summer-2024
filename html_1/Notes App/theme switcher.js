@@ -1,3 +1,1 @@
-document.getElementsByClassName('light-theme').addEventListener('click, function()') {
-    
-}
+document.getElementsByTagName('button')
