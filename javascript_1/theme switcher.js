@@ -1,1 +1,1 @@
-document.getElementsByTagName('button')
+document.getElements('button')
