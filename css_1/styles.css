@@ -47,3 +47,17 @@ img {
     max-width: 100%;
     height: auto;
 }
+
+/* Dark theme */
+body.dark-theme {
+    background-color: black;
+    color: white;
+}
+
+h1.dark-theme {
+    color: white;
+}
+
+a.dark-theme {
+    color: lightblue;
+}

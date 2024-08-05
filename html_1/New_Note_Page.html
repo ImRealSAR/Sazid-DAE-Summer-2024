@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>New Note</title>
-        <link rel="stylesheet" href="styles.css">
+        <link rel="stylesheet" href="../css_1/styles.css">
     </head>
     <body id="LightNewNote" class="light-theme">
         <!--Top of the page-->
@@ -15,7 +15,9 @@
             <!-- Theme toggle link -->
             <nav>
                 <ul>
-                    <li><a href="dark-theme-new-note.html" id="theme-toggle">Switch to Dark Theme</a></li>
+                    <li>
+                        <button type="button" id="theme_switcher">Click me to toggle theme!</button>
+                    </li>
                 </ul>
             </nav>
         </header>
@@ -23,5 +25,6 @@
         <main>
             <input type="text" style="width: 100%;">
         </main>
+        <script src="/javascript_1/theme_switcher.js"></script>
     </body>
 </html>
