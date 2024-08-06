@@ -2,62 +2,32 @@
     font-family: "Times New Roman", sans-serif;
 }
 
-/* Light theme */
-body.light-theme {
-    background-color: white;
-    color: black;
+.theme-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 24px;
 }
 
-h1.light-theme {
-    color: black;
+.sun-icon {
+    display: none;
 }
 
-a.light-theme {
-    color: blue;
+.moon-icon {
+    display: none;
 }
 
-p {
-    font-size: 16px;
-    line-height: 1.5;
-    color: darkgray;
-}
-
-ul {
-    list-style-type: disc;
-    margin-left: 20px;
-}
-
-ol {
-    list-style-type: decimal;
-    margin-left: 20px;
-}
-
-table {
-    width: 100%;
-    border-collapse: collapse;
-}
-
-th, td {
-    border: 1px solid black;
-    padding: 8px;
-    text-align: left;
-}
-
-img {
-    max-width: 100%;
-    height: auto;
-}
-
-/* Dark theme */
-body.dark-theme {
+.dark-mode{
     background-color: black;
     color: white;
 }
 
-h1.dark-theme {
-    color: white;
+body.light-mode .sun-icon {
+    display: inline;
+    background-color: whitesmoke;
 }
 
-a.dark-theme {
-    color: lightblue;
+body.dark-mode .moon-icon {
+    display: inline;
+    background-color: black;
 }

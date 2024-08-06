@@ -1,26 +1,22 @@
-// Select the button and the body
-const toggleThemeButton = document.getElementById('theme_switcher');
-const body = document.body;
+const toggleTheme = document.getElementById('theme-toggle');
+const themeIcon = document.getElementById('theme-icon');
 
-// Function to apply the theme
-function applyTheme(theme) {
-    if (theme === 'dark') {
-        body.classList.remove('light-theme');
-        body.classList.add('dark-theme');
+toggleTheme.addEventListener('click', () => {
+    document.body.classList.toggle('dark-mode');
+    document.body.classList.toggle('light-mode');
+    updateIcon();
+});
+
+function updateIcon() {
+    if (document.body.classList.contains('dark-mode')) {
+        themeIcon.textContent = '🌙';
+        themeIcon.classList.remove('sun-icon');
+        themeIcon.classList.add('moon-icon');
     } else {
-        body.classList.remove('dark-theme');
-        body.classList.add('light-theme');
+        themeIcon.textContent = '☀️';
+        themeIcon.classList.remove('moon-icon');
+        themeIcon.classList.add('sun-icon');
     }
 }
 
-// Load the saved theme from localStorage
-const savedTheme = localStorage.getItem('theme') || 'light';
-applyTheme(savedTheme);
-
-// Add an event listener to the button to handle the theme toggle
-toggleThemeButton.addEventListener('click', () => {
-    const currentTheme = body.classList.contains('light-theme') ? 'light' : 'dark';
-    const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-    applyTheme(newTheme);
-    localStorage.setItem('theme', newTheme);
-});
+document.addEventListener('DOMContentLoaded', updateIcon);

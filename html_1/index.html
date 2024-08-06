@@ -1,47 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Noteify</title>
-        <link rel="stylesheet" href="../css_1/styles.css">
-    </head>
-    <body id=light-theme>
-        <!--Top of the page-->
-        <header>
-            <h1>
-                <a href="index.html" title="Noteify">Noteify</a>
-                <img src="Noteify_Icon_V1.png" alt="This is the Noteify App Icon" width="500" height="500">
-            </h1>
-            <!-- Theme toggle link -->
-            <div>
-                <nav>
-                    <ul>
-                        <li>
-                            <button type="button" id="theme_switcher">Click me to toggle theme!</button>
-                        </li>
-                        <li>
-                            <button type="button">
-                            <a href="New_Note_Page.html">New Note
-
-                            </button>
-                            <!--<a href="New_Note_Page.html" target="_self"></a> -->
-                        </li>
-                        <li><a href="#Browse">Browse</a></li>
-                    </ul>
-                </nav>
-            </div>
-        </header>
-        <!-- The main content -->
-        <main>
-            <p>Welcome to <b>Noteify!</b><br>Here you can take notes as if you would in real life on anything and everything, but using your own mobile device! Also feel free to use more personal features, like the lock, to use as diary or for other really personal purposes!</p>
-        </main>
-        <!-- Footer Stuff -->
-        <footer>
-            <p>&copy; 2024 Noteify | All rights reserved blah blah | <i>Made by SAR</i></p>
-        </footer>
-        <!-- Best place for JS -->
-        <script src="../javascript_1/yes.js"></script>
-        <script src="../javascript_1/theme_switcher.js"></script>
-    </body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Noteify</title>
+    <link rel="stylesheet" href="../css_1/styles.css">
+</head>
+<body class="dark-mode" id="light-theme">
+    <header>
+        <h1>
+            <a href="index.html">
+                <img src="Noteify_Icon_V1.png" alt="This is the Noteify App Icon, which can be clicked to return to home page!" width="500" height="500">
+            </a>
+        
+        </h1>
+        <nav>
+            <ul>
+                <li>
+                    <button id="theme-toggle" class="theme-toggle">
+                        <span id="theme-icon" class="sun-icon">☀️</span>
+                    </button>
+                </li>
+                <li>
+                    <button type="button">
+                        <a href="New_Note_Page.html">New Note</a>
+                    </button>
+                </li>
+                <li><a href="#Browse">Browse</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <p>Welcome to <b>Noteify!</b><br>Here you can take notes as if you would in real life on anything and everything, but using your own mobile device! Also feel free to use more personal features, like the lock, to use as diary or for other really personal purposes!</p>
+    </main>
+    <footer>
+        <p>&copy; 2024 Noteify | All rights reserved blah blah | <i>Made by SAR</i></p>
+    </footer>
+    <script src="../javascript_1/yes.js"></script>
+    <script src="../javascript_1/theme_switcher.js"></script>
+</body>
 </html>
