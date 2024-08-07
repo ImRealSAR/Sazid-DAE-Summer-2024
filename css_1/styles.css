@@ -35,17 +35,29 @@ body.dark-mode .moon-icon {
 
 /* Settings button */
 #settings {
-    display: inline-block;
+    display: flex;
     padding: 0;
-    border: 2px solid #007BFF; /* Example border */
-    background-color: #007BFF; /* Example background color */
-    border-radius: 5px; /* Example rounded corners */
+    border: none;
+    width: 50px;  /* Adjust the width as needed */
+    height: 50px;  /* Adjust the height as needed */
+    background-color: transparent;  /* Transparent background if you want just the image */
     cursor: pointer;
-    text-decoration: none; /* Remove underline from link */
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px; 
 }
 
 #settings_button_link {
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 100%;
-    height: auto;
+    height: 100%;
+}
+
+#settings_button_image {
+    width: 100%;  /* Make the image take the full width of the button */
+    height: 100%;  /* Make the image take the full height of the button */
+    object-fit: cover;  /* Ensure the image fits the button size without distortion */
+    border-radius: 5px;
 }
