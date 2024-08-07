@@ -2,6 +2,7 @@
     font-family: "Times New Roman", sans-serif;
 }
 
+/* Theme toggle */
 .theme-toggle {
     background: none;
     border: none;
@@ -17,7 +18,7 @@
     display: none;
 }
 
-.dark-mode{
+.dark-mode {
     background-color: black;
     color: white;
 }
@@ -30,4 +31,21 @@ body.light-mode .sun-icon {
 body.dark-mode .moon-icon {
     display: inline;
     background-color: black;
+}
+
+/* Settings button */
+#settings {
+    display: inline-block;
+    padding: 0;
+    border: 2px solid #007BFF; /* Example border */
+    background-color: #007BFF; /* Example background color */
+    border-radius: 5px; /* Example rounded corners */
+    cursor: pointer;
+    text-decoration: none; /* Remove underline from link */
+}
+
+#settings_button_link {
+    display: block;
+    width: 100%;
+    height: auto;
 }
