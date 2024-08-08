@@ -32,3 +32,42 @@ function checkAge() {
     document.getElementById("output").innerText = outputMessage;
   }
   
+/* Text Boxes stuff for the notes I guess */
+function addTextBox() {
+  const container = document.getElementById('text-box-container');
+  const newTextBox = document.createElement('input');
+  newTextBox.type = 'text';
+  newTextBox.className = 'note-box';
+  newTextBox.style.width = '100%';
+  newTextBox.placeholder = 'Enter your note here...';
+  container.appendChild(newTextBox);
+}
+
+function saveTextBoxes() {
+  const textBoxes = document.getElementsByClassName('note-box');
+  let texts = [];
+  for (let i = 0; i < textBoxes.length; i++) {
+      texts.push(textBoxes[i].value);
+  }
+  localStorage.setItem('textBoxes', JSON.stringify(texts));
+  alert('Text boxes saved!');
+}
+
+function loadTextBoxes() {
+  const texts = JSON.parse(localStorage.getItem('textBoxes'));
+  if (texts) {
+      const container = document.getElementById('text-box-container');
+      container.innerHTML = '';
+      texts.forEach(text => {
+          const newTextBox = document.createElement('input');
+          newTextBox.type = 'text';
+          newTextBox.className = 'note-box';
+          newTextBox.style.width = '100%';
+          newTextBox.value = text;
+          newTextBox.placeholder = 'Enter your note here...';
+          container.appendChild(newTextBox);
+      });
+  }
+}
+
+window.onload = loadTextBoxes;
