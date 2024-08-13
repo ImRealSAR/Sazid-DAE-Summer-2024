@@ -3,8 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Settings</title>
+    <title>Soute - Where Your Soul Meets Secure Notes</title>
     <link rel="stylesheet" href="../css_1/styles.css">
+    
+    <!-- Firebase SDKs -->
+    <script type="module">
+        import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.1.2/firebase-app.js';
+        import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/9.1.2/firebase-auth.js';
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyDHCuWQE5DgQBxT5rYh97j2KO6GAOqbCrs",
+            authDomain: "soute-sardev.firebaseapp.com",
+            projectId: "soute-sardev",
+            storageBucket: "soute-sardev.appspot.com",
+            messagingSenderId: "761868083764",
+            appId: "1:761868083764:web:05d6473183b78a318da061",
+            measurementId: "G-3WWKCGYE0J"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+
+        document.addEventListener('DOMContentLoaded', () => {
+            document.getElementById('signUp').addEventListener('click', () => {
+                const email = document.getElementById('email').value;
+                const password = document.getElementById('password').value;
+                createUserWithEmailAndPassword(auth, email, password)
+                    .then((userCredential) => {
+                        console.log('User signed up:', userCredential.user);
+                    })
+                    .catch((error) => {
+                        console.error('Sign-up error:', error);
+                    });
+            });
+
+            document.getElementById('signIn').addEventListener('click', () => {
+                const email = document.getElementById('email').value;
+                const password = document.getElementById('password').value;
+                signInWithEmailAndPassword(auth, email, password)
+                    .then((userCredential) => {
+                        console.log('User signed in:', userCredential.user);
+                    })
+                    .catch((error) => {
+                        console.error('Sign-in error:', error);
+                    });
+            });
+        });
+    </script>
 </head>
 <body class="light-mode">
     <nav class="navbar">
@@ -21,16 +67,18 @@
             <button id="theme-toggle" class="theme-toggle">
                 <span id="theme-icon" class="sun-icon">☀️</span>
             </button>
-    
+            <input type="email" id="email" placeholder="Email">
+            <input type="password" id="password" placeholder="Password">
+            <button id="signUp">Sign Up</button>
+            <button id="signIn">Sign In</button>
         </h1>
     </header>
     <main>
-        <button onclick="checkAge()">
-            Check Age
-        </button>
+        <button id="googleSignIn">Sign in with Google</button>
+        <button onclick="checkAge()">Check Age</button>
         <p id="output"></p>
     </main>
     <script src="../javascript_1/theme_switcher.js"></script>
-    <script src="/javascript_1/yes.js"></script>
+    <script src="../javascript_1/yes.js"></script>
 </body>
 </html>

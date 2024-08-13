@@ -1,12 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Noteify</title>
-    <link rel="stylesheet" href="../css_1/styles.css">
-</head>
-<body>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Soute- Where Your Soul Meets Secure Notes</title>
+        <link rel="stylesheet" href="../css_1/styles.css">
+    
+        <!-- Add Firebase SDK -->
+        <script src="https://www.gstatic.com/firebasejs/9.1.2/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/9.1.2/firebase-auth.js"></script>
+    
+        <!-- Your Firebase configuration -->
+        <script>
+          const firebaseConfig = {
+            const firebaseConfig = {
+        apiKey: "AIzaSyDHCuWQE5DgQBxT5rYh97j2KO6GAOqbCrs",
+        authDomain: "soute-sardev.firebaseapp.com",
+        projectId: "soute-sardev",
+        storageBucket: "soute-sardev.appspot.com",
+        messagingSenderId: "761868083764",
+        appId: "1:761868083764:web:05d6473183b78a318da061",
+        measurementId: "G-3WWKCGYE0J"
+    
+          // Initialize Firebase
+          const app = firebase.initializeApp(firebaseConfig);
+          const auth = firebase.auth();
+        </script>
+    </head>
+    <body>
     <nav class="navbar">
         <div class="container">
             <div class="logo">
@@ -48,7 +69,6 @@
     </footer>
     <script src="../javascript_1/yes.js"></script>
     <script src="../javascript_1/theme_switcher.js"></script>
-    <script src="/Google_OAuth_Acoount/server.js"></script>
 </body>
 </html>
 
