@@ -7,7 +7,7 @@
             "runtimeArgs": [
                 "--remote-debugging-port=9222"
             ],
-            "url": "/Users/sa11/.vscode/extensions/ms-edgedevtools.vscode-edge-devtools-2.1.5/out/startpage/index.html", // Provide your project's url to finish configuring
+            "url": "/Users/sa11/.vscode/extensions/ms-edgedevtools.vscode-edge-devtools-2.1.5/out/startpage/../Google_OAuth_Acoount/public/index.html", // Provide your project's url to finish configuring
             "presentation": {
                 "hidden": true
             }
@@ -20,7 +20,7 @@
                 "--headless",
                 "--remote-debugging-port=9222"
             ],
-            "url": "/Users/sa11/.vscode/extensions/ms-edgedevtools.vscode-edge-devtools-2.1.5/out/startpage/index.html", // Provide your project's url to finish configuring
+            "url": "/Users/sa11/.vscode/extensions/ms-edgedevtools.vscode-edge-devtools-2.1.5/out/startpage/../Google_OAuth_Acoount/public/index.html", // Provide your project's url to finish configuring
             "presentation": {
                 "hidden": true
             }
@@ -29,7 +29,7 @@
             "type": "vscode-edge-devtools.debug",
             "name": "Open Edge DevTools",
             "request": "attach",
-            "url": "/Users/sa11/.vscode/extensions/ms-edgedevtools.vscode-edge-devtools-2.1.5/out/startpage/index.html", // Provide your project's url to finish configuring
+            "url": "/Users/sa11/.vscode/extensions/ms-edgedevtools.vscode-edge-devtools-2.1.5/out/startpage/../Google_OAuth_Acoount/public/index.html", // Provide your project's url to finish configuring
             "presentation": {
                 "hidden": true
             }
