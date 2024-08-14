@@ -1,6 +1,6 @@
 /* Just an alert and making sure the alert only shows once per device */
 if (!localStorage.getItem('alertShown')) {
-    alert("By using Noteify, you agree to the terms and conditions.");
+    alert("By using Soute, you agree to the terms and conditions.");
     localStorage.setItem('alertShown', 'true');
 }
 
