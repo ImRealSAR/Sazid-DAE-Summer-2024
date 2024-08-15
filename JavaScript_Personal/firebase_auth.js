@@ -1,9 +1,7 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-app.js";
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, sendEmailVerification, deleteUser } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-auth.js";
-import { getFirestore, collection, doc, setDoc, getDoc } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore.js";
-import { getStorage, ref, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-storage.js"; // Import Firebase Storage
-import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-analytics.js";
+import { getStorage, ref, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-storage.js";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -19,9 +17,7 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
-const db = getFirestore(app);
 const storage = getStorage(app); // Initialize Firebase Storage
-const analytics = getAnalytics(app);
 
 // Function to log message to console and display as an alert
 function logAndAlert(message) {
@@ -29,8 +25,10 @@ function logAndAlert(message) {
     alert(message);
 }
 
+// Event listeners after DOM content is loaded
 document.addEventListener('DOMContentLoaded', () => {
-    document.getElementById('signUp').addEventListener('click', () => {
+    // Sign Up
+    document.getElementById('signUp')?.addEventListener('click', () => {
         const email = document.getElementById('email').value;
         const password = document.getElementById('password').value;
         createUserWithEmailAndPassword(auth, email, password)
@@ -43,7 +41,8 @@ document.addEventListener('DOMContentLoaded', () => {
             });
     });
 
-    document.getElementById('signIn').addEventListener('click', () => {
+    // Sign In
+    document.getElementById('signIn')?.addEventListener('click', () => {
         const email = document.getElementById('email').value;
         const password = document.getElementById('password').value;
         signInWithEmailAndPassword(auth, email, password)
@@ -54,10 +53,39 @@ document.addEventListener('DOMContentLoaded', () => {
                 logAndAlert('Sign-in error: ' + error.message);
             });
     });
-});
 
-/* Email verification system  */
-import { sendEmailVerification } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-auth.js";
+    // Delete Account
+    document.getElementById('deleteAccount')?.addEventListener('click', () => {
+        const user = auth.currentUser;
+        deleteUser(user)
+            .then(() => {
+                logAndAlert('User account deleted.');
+            })
+            .catch((error) => {
+                logAndAlert('Error deleting user account: ' + error.message);
+            });
+    });
+
+    // View User Profile
+    document.getElementById('showProfile')?.addEventListener('click', () => {
+        const user = auth.currentUser;
+        if (user) {
+            logAndAlert('User email: ' + user.email);
+        } else {
+            logAndAlert('No user is signed in.');
+        }
+    });
+
+    // Upload File to Firebase Storage
+    document.getElementById('uploadButton')?.addEventListener('change', (event) => {
+        const file = event.target.files[0];
+        if (file) {
+            uploadFile(file).then((url) => {
+                logAndAlert('File uploaded successfully. Download URL: ' + url);
+            });
+        }
+    });
+});
 
 // Function to send email verification
 function sendVerificationEmail(user) {
@@ -70,67 +98,26 @@ function sendVerificationEmail(user) {
         });
 }
 
-/* Delete account system */
-import { deleteUser } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-auth.js";
-
-// Function to delete user account
-document.getElementById('deleteAccount').addEventListener('click', () => {
-    const user = auth.currentUser;
-    deleteUser(user)
-        .then(() => {
-            logAndAlert('User account deleted.');
-        })
-        .catch((error) => {
-            logAndAlert('Error deleting user account: ' + error.message);
-        });
-});
-
-/* View User Profile system */
-// Function to display user profile
-document.getElementById('showProfile').addEventListener('click', () => {
-    const user = auth.currentUser;
-    if (user) {
-        logAndAlert('User email: ' + user.email);
-    } else {
-        logAndAlert('No user is signed in.');
-    }
-});
-
-/* Upload a File to Firebase Storage */
+// Function to upload file to Firebase Storage
 async function uploadFile(file) {
-    const storageRef = ref(storage, 'uploads/' + file.name); // Create a reference to 'uploads/fileName'
+    const storageRef = ref(storage, 'uploads/' + file.name);
     try {
-        const snapshot = await uploadBytes(storageRef, file); // Upload the file
-        console.log('Uploaded a file!', snapshot);
-        const downloadURL = await getDownloadURL(storageRef); // Get the download URL
-        console.log('File available at', downloadURL);
+        const snapshot = await uploadBytes(storageRef, file);
+        logAndAlert('Uploaded a file!');
+        const downloadURL = await getDownloadURL(storageRef);
         return downloadURL;
     } catch (error) {
         console.error('Upload failed', error);
     }
 }
 
-// Usage example
-document.getElementById('uploadButton').addEventListener('change', (event) => {
-    const file = event.target.files[0];
-    if (file) {
-        uploadFile(file).then((url) => {
-            console.log('File uploaded successfully. Download URL:', url);
-        });
-    }
-});
-
-/* Download a File from Firebase Storage */
+// Function to download file from Firebase Storage
 async function downloadFile(filePath) {
-    const storageRef = ref(storage, filePath); // Create a reference to the file
+    const storageRef = ref(storage, filePath);
     try {
-        const downloadURL = await getDownloadURL(storageRef); // Get the download URL
-        console.log('File available at', downloadURL);
-        // You can now use the URL to display the file or download it
+        const downloadURL = await getDownloadURL(storageRef);
+        logAndAlert('File available at ' + downloadURL);
     } catch (error) {
         console.error('Download failed', error);
     }
 }
-
-// Usage example
-downloadFile('uploads/example.jpg');
